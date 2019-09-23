@@ -6,7 +6,6 @@
 	<!--
 		Wrapper created by Dan Wolff (danwolff.se)
 		This wrapper is in the public domain. Attribution not required but appreciated.
-
 		UglifyJS is released under the BSD license, copyright Mihai Bazon.
 		For more information, see https://github.com/mishoo/UglifyJS2/.
 	 -->
@@ -15,69 +14,69 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<div class="container">
-      <!-- Static navbar-->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/">JSMinifier.artipedia.id</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/plugins">Plugins</a></li>
-            <li><a href="/programs">Programs</a></li>
-            <li><a href="https://webdev.sh/blog/category-javascript-minifier">Blog</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <p class="navbar-text">Our other services:</p>
-            </li>
-            <li><a href="https://cssminifier.com/">CSS Minifier</a></li>
-            <li><a href="http://img-resize.com/">Image Resize</a></li>
-            <li><a href="http://pngcrush.com/">PNG Crush</a></li>
-            <li><a href="http://jpgoptimiser.com/">JPG Optimiser</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="row" id="ads">
-        <div class="col-md-4">
-          <h1>Minify your JavaScript</h1>
-          <p>Online JavaScript Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.</p>
-          <p>
-            Written and hosted by
-            <a href="https://chilts.org/">Andrew Chilton</a>
-            (<a href="https://twitter.com/andychilton">@andychilton</a>).
-          </p>
-        </div>
-        <div class="col-md-8 c">
-          <script async="" src="//www.google-analytics.com/analytics.js"></script>
-		  <script async="" type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D62QW&amp;placement=javascript-minifiercom" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QNF67DP2JMCWA4YKQMCYAIKK7WCYSDCZ3JCWSDL2JWC6BIT5QKC6BIK5QLCVAI6K3EHJNCLSIZ?segment=placement:javascript-minifiercom;" class="carbon-img" target="_blank" rel="noopener"><img src="https://cdn4.buysellads.net/uu/1/52273/1565812784-image_3.png" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QNF67DP2JMCWA4YKQMCYAIKK7WCYSDCZ3JCWSDL2JWC6BIT5QKC6BIK5QLCVAI6K3EHJNCLSIZ?segment=placement:javascript-minifiercom;" class="carbon-text" target="_blank" rel="noopener">Diversify your revenue beyond in-app purchases with ad monetization</a></span><a href="http://carbonads.net/?utm_source=javascript-minifiercom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener">ads via Carbon</a><img src="https://ad.atdmt.com/i/img;adv=11202201390319;ec=11202224976311;c.a=22923757;p.a=253492053;a.a=449507314;s.a=5161393;as.a=253492053;idfa=;idfa_lat=;aaid=;aaid_lat=;cache=" border="0" height="1" width="1" alt="ads via Carbon" style="display: none;"></span></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="muted">Input JavaScript</h3>
-          <form class="form-stacked" id="input-form" method="post" name="f" action="/minify">
-            <fieldset>
-              <div class="clearfix">
-                <div class="input">
-                  <textarea class="col-md-12" id="in" rows="15" cols="80" spellcheck="false" tabindex="1" autofocus>// Your code goes here
+<body class="s-input s-info">
+
+<div class="header">
+	<h1><a id="header-link" href="./">UglifyJS 3: Online JavaScript minifier</a></h1>
+</div>
+
+
+<div class="content">
+	<div class="col i i-input">
+<textarea id="in" rows="15" cols="80" spellcheck="false" tabindex="1" autofocus>// Your code goes here
 
 
 </textarea>
-				  <
-                </div>
-              </div>
-              <div class="actions">
-			  <button class="btn btn-primary" id="btn-go" tabindex="1">Minify</button>
-			<button class="btn btn-primary" id="btn-options" tabindex="2">Options</button>
+		<div class="tools">
+			<button class="btn-main pull-right" id="btn-go" tabindex="1">Minify</button>
+			<button id="btn-options" tabindex="2">Options</button>
 			<label><input id="cb-as-i-type" type="checkbox" checked> As I type</label>
-			
-                
-              </div>
-            </fieldset>
-          </form>
-		  
-		      pure_getters     : "strict",
+		</div>
+	</div>
+
+	<div class="col i i-options">
+<textarea id="options" rows="15" cols="80" spellcheck="false" tabindex="1">// Documentation of the options is available at https://github.com/mishoo/UglifyJS2
+{
+  parse: {
+    bare_returns     : false,
+    ecma             : 8,
+    expression       : false,
+    filename         : null,
+    html5_comments   : true,
+    shebang          : true,
+    strict           : false,
+    toplevel         : null
+  },
+  compress: {
+    arrows           : true,
+    booleans         : true,
+    collapse_vars    : true,
+    comparisons      : true,
+    computed_props   : true,
+    conditionals     : true,
+    dead_code        : true,
+    drop_console     : false,
+    drop_debugger    : true,
+    ecma             : 5,
+    evaluate         : true,
+    expression       : false,
+    global_defs      : {},
+    hoist_funs       : false,
+    hoist_props      : true,
+    hoist_vars       : false,
+    ie8              : false,
+    if_return        : true,
+    inline           : true,
+    join_vars        : true,
+    keep_classnames  : false,
+    keep_fargs       : true,
+    keep_fnames      : false,
+    keep_infinity    : false,
+    loops            : true,
+    negate_iife      : true,
+    passes           : 1,
+    properties       : true,
+    pure_getters     : "strict",
     pure_funcs       : null,
     reduce_funcs     : true,
     reduce_vars      : true,
@@ -140,46 +139,39 @@
 			<button class="btn-main" id="btn-options-save" tabindex="2">Save</button>
 			<button id="btn-options-reset" tabindex="2">Use defaults</button>
 		</div>
-		  
-        </div>
-        <div class="col-md-6">
-          <h3 class="muted">Minified Output</h3>
-          <form class="form-stacked" id="output-form" name="f">
-            <fieldset>
-              <div class="clearfix">
-                <div class="input">
-				<textarea id="out" class="col-md-12" spellcheck="false" rows="15" tabindex="3" disabled="disabled"></textarea>
-                 </div>
-              </div>
-              <div class="actions">
-                <button class="btn" id="select" type="button" disabled="disabled">Select All</button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-      <h2 class="muted">Language Examples</h2>
-      <p>Click on the language of your choice:</p>
-      <div class="btn-group" role="group" aria-label="Language Examples Navigation"> <a class="btn btn-default" href="/wget">wget</a> <a class="btn btn-default" href="/curl">Curl</a> <a class="btn btn-default" href="/nodejs">Node.js</a> <a class="btn btn-default" href="/python">Python</a> <a class="btn btn-default" href="/java">Java</a> <a class="btn btn-default" href="/ruby">Ruby</a> <a class="btn btn-default" href="/perl">Perl</a> <a class="btn btn-default" href="/php">PHP</a> <a class="btn btn-default" href="/c-sharp">C#</a>
-      </div>
-      <h3 class="muted">More Languages</h3>
-      <p>
-        I'd love to add more examples in your favourite programming language, so feel free to send them my way.
-        Email andychilton at that gmail place in the sky or tweet to me <a href="https://twitter.com/andychilton">@andychilton</a>.
-      </p>
-      <h2 class="muted">API - General</h2>
-      <p>
-        To minify/compress your JavaScript perform a POST request to <code>https://javascript-minifier.com/raw</code> with the
-        <code>input</code> parameter set to the JavaScript you want to minify.
-      </p>
-      <pre>POST https://javascript-minifier.com/raw?input=...</pre>
-      <p>To see implementations in other languages see the Language Examples pages above.</p>
-      <h2 class="muted">Plugins</h2>
-      <p>Many of our users have made plugins for various editors which are listed on the <a href="/plugins">plugins</a> page.</p>
-      <h2 class="muted">Programs</h2>
-      <p>Lots of people are making little programs to use JavaScript Minifier - see the <a href="/programs">programs</a> page.</p>
-      <p>(Ends)</p>
-    </div>
+	</div>
+
+	<div class="col i i-info">
+		<p>
+			<strong>UglifyJS 3</strong> is an excellent tool to help you minify your JavaScript!
+			It's a tried and tested tool, used by libraries such as jQuery.</p>
+
+		<p>
+			This is a simple wrapper for the browser around the minifier;
+			the hard work is done by the Uglify team.
+			If you need an automated solution, I suggest checking out the
+			<a href="https://github.com/mishoo/UglifyJS2">source code</a>, intended for Node.JS.</p>
+
+		<p>
+			Do you want to help improve this tool? It's on <a href="https://github.com/Skalman/UglifyJS-online">Github</a>.</p>
+
+		<p><small>
+			This wrapper for the browser was created by <a href="https://danwolff.se/">Dan Wolff</a>.
+
+			Version <code id="version">uglify-es 3.3.9</code>.</small></p>
+
+	</div>
+
+	<div class="col i i-output">
+		<p>
+			The minified output (<span id="stats"></span>)</p>
+		<textarea id="out" spellcheck="false" tabindex="3"></textarea>
+	</div>
+
+	<div class="col i i-error">
+		<pre id="error"></pre>
+	</div>
+</div>
 
 <script src="uglify/lib/minify.js"></script>
 <script src="uglify/lib/utils.js"></script>
